@@ -41,12 +41,13 @@ String String::operator+(String s2)
 
 void String::display()
 {
-	cout<<"\n\n"<<endl<<endl;
+	cout<<s<<endl;
 }
 
 
 int main(void)
 {
+	system("CLS");
 	String s1; 
 	String s2("Well Done!");
 	cout<<"String s1\n\n";

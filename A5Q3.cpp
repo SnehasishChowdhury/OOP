@@ -1,40 +1,50 @@
 #include<iostream>
 using namespace std;
+class DB;
 
     class DM
     {   
-        public:
         double m, cm;
-
+        public:
+        
         void read()
         {
             cout<<"Enter distance in meter and centimetre: ";
-            cin>>m>>cm;
+            cout<<"\nIn metre: ";
+            cin>>m;
+            cout<<"In centimetre: ";
+            cin>>cm;
         }
+            friend void add(DM, DB);
     };
+
     class DB
     {
-        public:
         double feet, inches;
-            friend DM add(DM, DB);
+        public:
+            friend void add(DM, DB);
 
         void read()
         {
             cout<<"Enter distance in feet and inches: ";
-            cin>>feet>>inches;
+            cout<<"\nIn feet: ";
+            cin>>feet;
+            cout<<"In inches: ";
+            cin>>inches;
         }
     };
 
-DM add(DM dm, DB db)
+void add(DM dm, DB db)
 {
     double d1,d2;
 
     d1=dm.m+(db.feet)/3.281;
     d2=dm.cm+(db.inches)*2.54;
-    cout<<"\nmeter + feet = "<<d1<<" m";
-    cout<<"\ncentimeter + inches = "<<d2<<" cm";
-    return dm;
+    cout<<"\nAddition of metre and feets is: "<<d1<<" m";
+    cout<<"\nAddition of centimetres and inches is: "<<d2<<" cm";
+    
 }
+
 int main()
 {
     DM dm;
